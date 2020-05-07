@@ -17,7 +17,10 @@ export const saveNewLoan = (loanDetails) => {
 };
 
 export const findAndRemoveLoan = (loanId) => {
-    return LoanModel.findByIdAndRemove({_id: loanId});
+    if (loanId.match(/^[0-9a-fA-F]{24}$/)) {
+        return LoanModel.findByIdAndRemove({_id: loanId});
+    }
+    throw new Error('Loan id is illegal');
 };
 
 export const endLoan = (loanId, paidCurrency) => {
