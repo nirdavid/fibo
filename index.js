@@ -1,6 +1,6 @@
 #!/usr/bin/env node --experimental-modules --no-warnings
 
-import asyncCurrencyConverter from './currencyConverter.js'
+import asyncCurrencyConverter from './service/currencyConverterService.js'
 import {saveNewLoan, endLoan} from './service/loanService.js'
 import Database from './db/database.js'
 

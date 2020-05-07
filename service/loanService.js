@@ -1,6 +1,6 @@
 import LoanModel from '../models/loan.js'
 import {printLoanDetails, printDate} from "./consts.js";
-import asyncCurrencyConverter from '../currencyConverter.js'
+import asyncCurrencyConverter from './currencyConverterService.js'
 import {calcNumberOfDaysBetween, LOAN_BASE_COMMISSION, LOAN_DAILY_COMMISSION} from "./consts.js";
 
 export const saveNewLoan = (loanDetails) => {
@@ -10,11 +10,9 @@ export const saveNewLoan = (loanDetails) => {
         .then(item => {
             printLoanDetails(item);
             process.exit();
-            //res.send("item saved to database");
         })
         .catch(err => {
             console.log(err);
-            //res.status(400).send("unable to save to database");
         });
 };
 
